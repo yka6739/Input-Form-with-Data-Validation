@@ -1,0 +1,54 @@
+﻿@page "/"
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+@*<EditForm Model="genre" OnSubmit="Create">*@
+<EditForm Model="genre" OnValidSubmit="Create">
+    <DataAnnotationsValidator />
+
+
+
+    <div class="form-group">
+
+
+
+
+
+        <label>Name:</label>
+        <InputText class="form-control" Style="width:30%;" @bind-Value="@genre.Name" />
+        <ValidationMessage For="@(()=>genre.Name)" />
+        <label>Name:</label>
+        <InputText class="form-control" Style="width:30%;" @bind-Value="@genre.FatherName" />
+        <ValidationMessage For="@(()=>genre.FatherName)" />
+        <label>Father-Name:</label>
+        <InputText class="form-control" Style="width:30%;" @bind-Value="@genre.MotherName" />
+        <ValidationMessage For="@(()=>genre.MotherName)" />
+        <label>Mother-Name:</label>
+        <InputText class="form-control" Style="width:30%;" @bind-Value="@genre.Address" />
+        <ValidationMessage For="@(()=>genre.Address)" />
+        <label>Address:</label>
+        <InputText class="form-control" Style="width:30%;" @bind-Value="@genre.Pincode" />
+        <ValidationMessage For="@(()=>genre.Pincode)" />
+
+
+        <button class="btn btn-success" type="submit" @onclick="Create">Save Changes</button>
+
+    </div>
+
+</EditForm>
+
+@code
+{
+    private Genre genre = new Genre();
+    private void Create()
+    {
+        Console.WriteLine(genre.Name);
+        Console.WriteLine(genre.FatherName);
+        Console.WriteLine(genre.MotherName);
+        Console.WriteLine(genre.Address);
+        Console.WriteLine(genre.Pincode);
+    }
+}
